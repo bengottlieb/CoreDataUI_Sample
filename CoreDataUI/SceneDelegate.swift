@@ -8,6 +8,7 @@
 
 import UIKit
 import SwiftUI
+import CoreData
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -22,7 +23,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		// Use a UIHostingController as window root view controller
 		if let windowScene = scene as? UIWindowScene {
 		    let window = UIWindow(windowScene: windowScene)
-		    window.rootViewController = UIHostingController(rootView: ContentView())
+			window.rootViewController = UIHostingController(rootView:
+				ContentView(fetchRequest: DataStore.instance.kidRequest)
+				.environment(\.managedObjectContext, DataStore.instance.persistentContainer.viewContext)
+			)
 		    self.window = window
 		    window.makeKeyAndVisible()
 		}
@@ -56,7 +60,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		// to restore the scene back to its current state.
 
 		// Save changes in the application's managed object context when the application transitions to the background.
-		(UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+		DataStore.instance.saveContext()
 	}
 
 

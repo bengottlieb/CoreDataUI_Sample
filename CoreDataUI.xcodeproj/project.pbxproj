@@ -14,6 +14,7 @@
 		B57D7F5122F5A5DF00FB60DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B57D7F5022F5A5DF00FB60DD /* Assets.xcassets */; };
 		B57D7F5422F5A5DF00FB60DD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B57D7F5322F5A5DF00FB60DD /* Preview Assets.xcassets */; };
 		B57D7F5722F5A5DF00FB60DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B57D7F5522F5A5DF00FB60DD /* LaunchScreen.storyboard */; };
+		B57D7F5F22F5AA9600FB60DD /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B57D7F5E22F5AA9600FB60DD /* DataStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B57D7F5322F5A5DF00FB60DD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		B57D7F5622F5A5DF00FB60DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B57D7F5822F5A5DF00FB60DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B57D7F5E22F5AA9600FB60DD /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				B57D7F4722F5A5DD00FB60DD /* AppDelegate.swift */,
+				B57D7F5E22F5AA9600FB60DD /* DataStore.swift */,
 				B57D7F4922F5A5DD00FB60DD /* SceneDelegate.swift */,
 				B57D7F4E22F5A5DD00FB60DD /* ContentView.swift */,
 				B57D7F5022F5A5DF00FB60DD /* Assets.xcassets */,
@@ -152,6 +155,7 @@
 				B57D7F4D22F5A5DD00FB60DD /* CoreDataUI.xcdatamodeld in Sources */,
 				B57D7F4822F5A5DD00FB60DD /* AppDelegate.swift in Sources */,
 				B57D7F4F22F5A5DD00FB60DD /* ContentView.swift in Sources */,
+				B57D7F5F22F5AA9600FB60DD /* DataStore.swift in Sources */,
 				B57D7F4A22F5A5DD00FB60DD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
