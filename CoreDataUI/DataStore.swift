@@ -13,12 +13,13 @@ import SwiftUI
 class DataStore {
 	static let instance = DataStore()
 	
-	func addChild() {
+	@discardableResult
+	func addChild(withName: Bool = false) -> Kid {
 		let name = ["Ada", "Baker", "Charlie", "D'arcy", "Edith", "Frankie", "George", "Harriet", "Ian", "Justine", "Kenny"].randomElement()
 		
 		let kid = Kid(context: self.persistentContainer.viewContext)
-		kid.name = name
-		self.saveContext()
+		kid.name = withName ? name! : ""
+		return kid
 	}
 	
 	var kidRequest: FetchRequest<Kid> {

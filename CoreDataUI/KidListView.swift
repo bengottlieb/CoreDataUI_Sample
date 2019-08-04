@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  KidListView.swift
 //  CoreDataUI
 //
 //  Created by ben on 8/3/19.
@@ -13,30 +13,42 @@ extension Kid: Identifiable {
 	public var id: String { return self.name ?? "\(self)" }
 }
 
-struct ContentView: View {
+struct KidListView: View {
 	@FetchRequest var fetchRequest: FetchedResults<Kid>
+	@State var showDetails = false
+	@State var selectedKid: Kid?
 	
     var body: some View {
 		NavigationView {
 			VStack {
 				List(fetchRequest) { kid in
-					Text(kid.name ?? "None")
+					Button(action: {
+						self.selectedKid = kid
+						self.showDetails.toggle()
+					}) {
+						Text(kid.name ?? "None")
+					}
 				}
 			}
 			.navigationBarTitle(Text("CoreDataUI"))
 			.navigationBarItems(trailing: Button(action: {
-				DataStore.instance.addChild()
+				self.selectedKid = nil
+				self.showDetails.toggle()
 			}) {
 				Image(systemName: "plus.square")
 			})
 		}
+		.sheet(isPresented: self.$showDetails) {
+			KidDetailView(kid: KidViewModel(self.selectedKid))
+		}
+
     }
 }
 
 #if DEBUG
-struct ContentView_Previews: PreviewProvider {
+struct KidListView_Previews: PreviewProvider {
     static var previews: some View {
-		return ContentView(fetchRequest: DataStore.instance.kidRequest)
+		return KidListView(fetchRequest: DataStore.instance.kidRequest)
 			.environment(\.managedObjectContext, DataStore.instance.persistentContainer.viewContext)
     }
 }

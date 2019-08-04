@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		if let windowScene = scene as? UIWindowScene {
 		    let window = UIWindow(windowScene: windowScene)
 			window.rootViewController = UIHostingController(rootView:
-				ContentView(fetchRequest: DataStore.instance.kidRequest)
+				KidListView(fetchRequest: DataStore.instance.kidRequest)
 				.environment(\.managedObjectContext, DataStore.instance.persistentContainer.viewContext)
 			)
 		    self.window = window
