@@ -12,14 +12,16 @@ struct KidDetailView: View {
 	@ObservedObject var kid: KidViewModel
     @Environment(\.presentationMode) var presentationMode
 
-	@State var name: String = ""
-	
     var body: some View {
 		NavigationView {
 			Form() {
-				HStack() {
-					Text("Name")
+				Section(header: Text("Name")) {
 					TextField("child name", text: $kid.name)
+				}
+				Section(header: Text("Information")) {
+					DatePicker(selection: $kid.birthday, displayedComponents: .date) {
+						Text("Birthday")
+					}
 				}
 			}
 			.navigationBarItems(trailing: Button(action: {
@@ -31,6 +33,16 @@ struct KidDetailView: View {
 		}
 
     }
+}
+
+struct KidBirthdayView: View {
+	@State var birthday: Date
+	
+	var body: some View {
+		DatePicker(selection: $birthday, displayedComponents: .date) {
+			Text("Birthday")
+		}
+	}
 }
 
 #if DEBUG
